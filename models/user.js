@@ -20,7 +20,16 @@ const User = mongoose.model('Users', new mongoose.Schema({
         required: true,
         trim: true,
         minlength: 5,
-        maxlength: 10
+        maxlength: 10,
+        unique: true
+    },
+    email: {
+        type: String,
+        required: true,
+        minlength:3,
+        max:1024,
+        email: true,
+        unique: true
     },
     api: [
         {source: [
