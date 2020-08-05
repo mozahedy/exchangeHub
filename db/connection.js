@@ -1,12 +1,6 @@
 const mongoose = require('mongoose');
 
-// Please provide your connection string here
-//const URI = '';
-//On cloud database service
-//const URI = 'mongodb+srv://root:root@root@cluster0.lpe0u.mongodb.net/Cluster0?retryWrites=true&w=majority';
-//Local database
-//const URI = 'mongodb://localhost/urdbname'
-
+const URI = 'mongodb+srv://root:root@root@cluster0.lpe0u.mongodb.net/Cluster0?retryWrites=true&w=majority';
 
 connectDB = async ()=>{
     try {
