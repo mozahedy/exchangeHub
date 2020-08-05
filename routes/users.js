@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const { User } = require('../models/user');
+const { User, validate } = require('../models/user');
 var express = require('express');
 var router = express.Router();
 
@@ -10,7 +10,11 @@ router.get('/', async function(req, res, next) {
 });
 
 router.post('/', async (req, res)=>{
-  let user = new User({
+  const { error } = validate(req.body);
+  if(error)
+    return res.status(500).send(error.details[0].message);
+
+    let user = new User({
     firstname: req.body.firstname,
     lastname: req.body.lastname,
     username: req.body.username,
